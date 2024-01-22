@@ -78,7 +78,7 @@ class Connection implements ConnectionInterface
             // For select statements, we'll simply execute the query and return an array
             // of the result set. Each element in the array will be a single
             // row from the response, and will either be an array or objects.
-            $statement = $me->getClient()->get($query, ['query' => $bindings]);
+            $statement = $me->getClient()->get($query, ['query' => $bindings, 'connect_timeout' => 2]);
 
             return $statement->json();
         });
